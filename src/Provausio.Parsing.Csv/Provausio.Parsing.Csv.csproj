@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IncludeSymbols>true</IncludeSymbols>
+    <Configurations>Debug;Release</Configurations>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2.0.1</Version>
+    <Authors>Jeremy Stafford</Authors>
+    <Company>Provausio</Company>
+    <Copyright>2019 Provausio</Copyright>
+    <Product>Core libraries</Product>
+    <Description>Parsing libraries such as csv and fuzzy matching</Description>
+	  <BuildNumber Condition="'$(BuildNumber)' == ''">0</BuildNumber>
+    <VersionSuffix Condition="'$(BuildNumber)' == '0'">-pre</VersionSuffix>
+    <VersionSuffix Condition="'$(VersionSuffix)' == ''"></VersionSuffix>    
+    <PackageVersion>$(Version).$(BuildNumber)$(VersionSuffix)</PackageVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <PackageProjectUrl>https://github.com/jstafford5380/provausio.parsing.csv</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jstafford5380/provausio.parsing.csv</RepositoryUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>core libraries parsing</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Csv\Impl\**" />
+    <EmbeddedResource Remove="Csv\Impl\**" />
+    <None Remove="Csv\Impl\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>

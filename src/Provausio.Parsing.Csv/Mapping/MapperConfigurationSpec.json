@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "title": "Mapper Specification",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "isMapped": {
+        "$id": "#/das/mapperconfig/properties/isMapped",
+        "type": "boolean",
+        "title": "Whether or not there is a destination field",
+        "default": false,
+        "examples": [
+          true
+        ]
+      },
+      "type": {
+        "$id": "#/das/mapperconfig/properties/type",
+        "type": "string",
+        "title": "The data type",
+        "default": "string",
+        "examples": [
+          "number"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "expectNull": {
+        "$id": "#/das/mapperconfig/properties/expectNull",
+        "type": "boolean",
+        "title": "Whether or not the source file could provide a null value for this field",
+        "default": false,
+        "examples": [
+          false
+        ]
+      },
+      "destination": {
+        "$id": "#/das/mapperconfig/properties/destination",
+        "type": "string",
+        "title": "The new name of the field",
+        "default": "bar",
+        "examples": [
+          "bar"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "mutatorInfo": {
+        "$id": "#/das/mapperconfig/properties/mutatorInfo",
+        "type": "object",
+        "title": "Arbitrary object that holds info about a mutator that will be applied during mapping.",
+        "default": null
+      }
+    }
+  }
+}
